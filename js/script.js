@@ -113,21 +113,23 @@ for (let i = 0; i < listThumbs.length; i++) {
 const reverse = document.querySelector('.reverse');
 const forward = document.querySelector('.forward');
 
-pincolo = setInterval(carinoselloPlus, 1000);
-pincola = setInterval(carinoselloMinus, 1000);
+let pincola = 0
+let pincolo = 0
 
 reverse.addEventListener('click', 
 	function() {
-		debugger
 		clearInterval(pincolo);
+		clearInterval(pincola);
+		pincola = setInterval(carinoselloMinus, 3000);
 		pincola
-		
 	}
 )
 
 forward.addEventListener('click', 
 	function() {
 		clearInterval(pincola);
+		clearInterval(pincolo);
+		pincolo = setInterval(carinoselloPlus, 3000);
 		pincolo
 	}
 )
