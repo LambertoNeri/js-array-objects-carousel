@@ -24,7 +24,7 @@
 
 .highlighted {
 	height: 100%;
-	width: 80%;
+	width: 100%;
     position: relative;
 }
 
@@ -37,7 +37,7 @@
 
 .highlighted img {
 	display: none;
-	width: 100%;
+	width: 720px;
 	height: 100%;
 	object-fit: cover;
 }
@@ -75,10 +75,36 @@
 }
 
 .text {
-    bottom: 2rem;
-    right: 1rem;
+    bottom: 1rem;
+    right: 12rem;
     position: absolute;
     color: white;
-    max-width: 300px;
-    z-index: 9000;
+    max-width: 250px;
+	z-index: 100;
+	text-align: center;
+	
+}
+
+.title{
+	top: 1rem;
+    left: 1rem;
+    position: absolute;
+    color: white;
+    max-width: 250px;
+	z-index: 100;
+	text-align: center;
+	font-size: 2rem;
+}
+
+
+.reverse{
+	position: fixed;
+	top: 85%;
+	left: 40%;
+}
+
+.forward{
+	position: fixed;
+	top: 85%;
+	right: 40%;
 }

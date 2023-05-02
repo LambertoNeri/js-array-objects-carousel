@@ -21,33 +21,23 @@ const arrImages = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+
 const containerHighlighted = document.querySelector('.highlighted');
 const containerThumbs = document.querySelector('.thumbs');
-const textInserter = document.querySelector('.text')
-
-                
-
-
-
-
-
-
-
-
-
-
+let textInserter = document.querySelector('.text')
+let titleInserter = document.querySelector('.title')
 
 
 
 for (let i = 0; i < arrImages.length; i++) {
 	containerHighlighted.innerHTML += `<img src="${arrImages[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
-   
-    
 	containerThumbs.innerHTML += `<img src="${arrImages[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
  
+titleInserter.innerHTML = (arrImages[0].title);
+textInserter.innerHTML = (arrImages[0].text);
 
-textInserter.innerHTML = ('bimbo bello');
 
 
 // selezionimo le immagini nell'html
@@ -80,6 +70,8 @@ btnNext.addEventListener('click',
 		// alla nuova immagine attiva aggiungiamo la classe active
 		listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active')
+		titleInserter.innerHTML = (arrImages[activeIndex].title);
+		textInserter.innerHTML = (arrImages[activeIndex].text);
     }
 );
 
@@ -97,6 +89,8 @@ btnPrev.addEventListener('click',
 		// alla nuova immagine attiva aggiungiamo la classe active
 		listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active');
+		titleInserter.innerHTML = (arrImages[activeIndex].title);
+		textInserter.innerHTML = (arrImages[activeIndex].text);
 	}
 );
 
@@ -110,16 +104,68 @@ for (let i = 0; i < listThumbs.length; i++) {
 			activeIndex = i;
 			listHighlighted[activeIndex].classList.add('active');
 			listThumbs[activeIndex].classList.add('active');
- 
+			titleInserter.innerHTML = (arrImages[activeIndex].title);
+			textInserter.innerHTML = (arrImages[activeIndex].text);
 		}
 	)
 }
 
+const reverse = document.querySelector('.reverse');
+const forward = document.querySelector('.forward');
 
+pincolo = setInterval(carinoselloPlus, 1000);
+pincola = setInterval(carinoselloMinus, 1000);
 
-function newFunction() {
-    for (let i = 0; i < 9; i++) { // <---   questo qui
-        textInserter.innerHTML += ('bimbo bello');
-    }
+reverse.addEventListener('click', 
+	function() {
+		debugger
+		clearInterval(pincolo);
+		pincola
+		
+	}
+)
+
+forward.addEventListener('click', 
+	function() {
+		clearInterval(pincola);
+		pincolo
+	}
+)
+
+function carinoselloPlus() {
+	
+	// dall'immagine attiva tolgo la classe active
+	listHighlighted[activeIndex].classList.remove('active');
+	listThumbs[activeIndex].classList.remove('active');
+	// settiamo il nuovo valore di active index
+	activeIndex++;
+	if (activeIndex >= listHighlighted.length) {
+		activeIndex = 0;
+	}
+	// alla nuova immagine attiva aggiungiamo la classe active
+	listHighlighted[activeIndex].classList.add('active');
+	listThumbs[activeIndex].classList.add('active')
+	titleInserter.innerHTML = (arrImages[activeIndex].title);
+	textInserter.innerHTML = (arrImages[activeIndex].text);
 }
-  
+
+
+
+
+
+
+
+function carinoselloMinus() {
+	listHighlighted[activeIndex].classList.remove('active');
+	listThumbs[activeIndex].classList.remove('active');
+	// settiamo il nuovo valore di active index
+	activeIndex--;
+	if (activeIndex < 0) {
+		activeIndex = listHighlighted.length - 1;
+	}
+	// alla nuova immagine attiva aggiungiamo la classe active
+	listHighlighted[activeIndex].classList.add('active');
+	listThumbs[activeIndex].classList.add('active');
+	titleInserter.innerHTML = (arrImages[activeIndex].title);
+	textInserter.innerHTML = (arrImages[activeIndex].text);
+}
