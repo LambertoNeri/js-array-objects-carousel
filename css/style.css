@@ -80,4 +80,5 @@
     position: absolute;
     color: white;
     max-width: 300px;
+    z-index: 9000;
 }

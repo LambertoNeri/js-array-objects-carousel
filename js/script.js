@@ -25,18 +25,29 @@ const containerHighlighted = document.querySelector('.highlighted');
 const containerThumbs = document.querySelector('.thumbs');
 const textInserter = document.querySelector('.text')
 
+                
 
-for (let i = 0; i < 9; i++) {                            // <---   questo qui
-    textInserter.innerHTML += ('bimbo bello');               
-}
+
+
+
+
+
+
+
+
+
+
+
 
 for (let i = 0; i < arrImages.length; i++) {
 	containerHighlighted.innerHTML += `<img src="${arrImages[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
    
+    
 	containerThumbs.innerHTML += `<img src="${arrImages[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
+ 
 
-
+textInserter.innerHTML = ('bimbo bello');
 
 
 // selezionimo le immagini nell'html
@@ -54,8 +65,10 @@ const btnNext = document.querySelector('.btn-next');
 // cioe' l'indice dell'immagine attiva
 let activeIndex = 0;
 
+ 
 btnNext.addEventListener('click',
 	function() {
+        console.log ('ciao');
 		// dall'immagine attiva tolgo la classe active
 		listHighlighted[activeIndex].classList.remove('active');
 		listThumbs[activeIndex].classList.remove('active');
@@ -67,7 +80,7 @@ btnNext.addEventListener('click',
 		// alla nuova immagine attiva aggiungiamo la classe active
 		listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active')
-	}
+    }
 );
 
 btnPrev.addEventListener('click',
